@@ -44,3 +44,21 @@ if(BUILD_TESTS)
     enable_testing()
     add_subdirectory(tests)
 endif()
+
+set(lib_dest lib/cmake/${PROJECT_NAME}/)
+set(include_dest "include/${PROJECT_NAME}")
+
+file(GLOB HEADER_FILES "include/tinynurbs/*.*")
+file(GLOB HEADER_FILES_core "include/tinynurbs/core/*.*")
+file(GLOB HEADER_FILES_io "include/tinynurbs/io/*.*")
+file(GLOB HEADER_FILES_util "include/tinynurbs/util/*.*")
+
+INSTALL( TARGETS ${PROJECT_NAME} EXPORT tinynurbs DESTINATION ${lib_dest})
+INSTALL( EXPORT ${PROJECT_NAME} DESTINATION ${lib_dest})
+INSTALL( FILES ${HEADER_FILES}  DESTINATION ${include_dest})
+INSTALL( FILES ${HEADER_FILES_core}  DESTINATION ${include_dest}/core)
+INSTALL( FILES ${HEADER_FILES_io}  DESTINATION ${include_dest}/io)
+INSTALL( FILES ${HEADER_FILES_util}  DESTINATION ${include_dest}/util)
+
+
+INSTALL( FILES ${PROJECT_NAME}-config.cmake DESTINATION ${lib_dest})
