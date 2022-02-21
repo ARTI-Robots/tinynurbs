@@ -18,6 +18,31 @@ The library is under development.
 - [glm] (version 0.9.9 where PR #584 is merged is required since tinynurbs uses the `glm::vec<dim, T>` type)
 - C++14 compliant compiler
 
+## Installation
+
+Additional Dependency: glm (if not already installed)
+```
+cd ~/Downloads/
+git clone https://github.com/g-truc/glm.git
+cd glm/
+git checkout 0.9.9.0 
+mkdir -p build
+cd build
+cmake ..
+sudo make install
+```
+
+tinynurbs (if not already installed)
+```
+cd ~/Downloads/
+git clone https://github.com/ARTI-Robots/tinynurbs.git
+cd tinynurbs/
+mkdir -p build
+cd build
+cmake ..
+sudo make install
+```
+
 ## Usage
 
 The entire API consists of free functions named `curve*` and `surface*` which accept a `Curve` / `RationalCurve` and `Surface` / `RationalSurface` object, respectively.
