@@ -17,6 +17,10 @@
 #define CATCH_VERSION_MINOR 4
 #define CATCH_VERSION_PATCH 0
 
+// Building with glibc v2.35, MINSIGSTKSZ is no longer a constant causing a compiler error.
+// (see https://github.com/catchorg/Catch2/issues/2421). Thus:
+#define CATCH_CONFIG_NO_POSIX_SIGNALS
+
 #ifdef __clang__
 #    pragma clang system_header
 #elif defined __GNUC__
