@@ -43,6 +43,14 @@ cmake ..
 sudo make install
 ```
 
+## Build Notes
+
+`CATCH_CONFIG_NO_POSIX_SIGNALS` is defined in `test/catch.hpp` to work around a
+`MINSIGSTKSZ` compile error when compiling on Ubuntu 22.04 (ROS2), due to glibc
+2.34+. This disables Catch2's fatal-signal handling — if you hit a raw core
+dump/segfault during tests instead of a clean failure message, this define may
+be hiding it.
+
 ## Usage
 
 The entire API consists of free functions named `curve*` and `surface*` which accept a `Curve` / `RationalCurve` and `Surface` / `RationalSurface` object, respectively.
